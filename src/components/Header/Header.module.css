@@ -1,0 +1,71 @@
+nav {
+  background-color: transparent;
+  text-align: center;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  width: 100%;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-weight: bold;
+}
+
+nav ul li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: rgb(226, 222, 222);
+  text-decoration: none;
+  padding: 10px;
+  transition: color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Add transitions for color, transform, and box-shadow */
+  position: relative; /* Add relative positioning for pseudo-element */
+}
+
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: transparent;
+  transition: background-color 0.3s ease; /* Add transition for pseudo-element */
+}
+
+nav ul li a:hover {
+  /* background-color: lightgray; */
+  border-radius: 20px;
+  color: rgb(161, 159, 159);
+  transform: scale(1.1); /* Scale the link on hover */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow effect */
+}
+
+nav ul li a:hover::before {
+  background-color: lightgray; /* Change the background color of the pseudo-element on hover */
+}
+
+hr {
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double #2e2727;
+  color: #333;
+  text-align: center;
+}
+
+hr::after {
+  content: "§";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+}

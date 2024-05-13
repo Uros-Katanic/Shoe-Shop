@@ -1,0 +1,9 @@
+.shoeContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  /* max-width:90%; */
+  flex-wrap: wrap;
+  margin-bottom: 10em;
+}

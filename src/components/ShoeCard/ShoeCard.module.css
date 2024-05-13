@@ -1,0 +1,121 @@
+/* ShoeCard.module.css */
+
+.selling {
+  max-height: 100%;
+  width: 50%;
+  padding-left: 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add box shadow */
+}
+
+#main-container {
+  background: rgb(11, 16, 52);
+  background: linear-gradient(
+    90deg,
+    rgba(11, 16, 52, 0.8687850140056023) 0%,
+    rgba(255, 0, 0, 0.5998774509803921) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 30%;
+  min-height: 350px;
+  transition: transform 0.8s;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+
+#details-container {
+  background: rgb(11, 16, 52);
+  background: linear-gradient(
+    90deg,
+    rgba(11, 16, 52, 0.8687850140056023) 0%,
+    rgba(255, 0, 0, 0.5998774509803921) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  padding: 10px 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-basis: 30%;
+  min-height: 350px;
+  transition: transform 0.8s;
+  border-radius: 20px;
+  opacity: 0.8;
+}
+
+.shopping-basket {
+  display: flex;
+  justify-content: flex-end;
+  align-items: baseline;
+  height: min-content;
+  padding: 10px;
+  width: 80px;
+}
+
+#main-container:hover {
+  transform: scale(1.1);
+}
+
+article {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+article p {
+  margin-bottom: 10px;
+}
+
+.selling-text {
+  color: white;
+}
+
+.buy-now-anchor {
+  color: white;
+  background-color: red;
+  padding: 15px 60px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  text-decoration: none;
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  background-size: 200% auto;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+  font-weight: bold;
+}
+
+.buy-now-anchor:hover {
+  background-position: right center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.price-effect {
+  font-family: sans-serif;
+  background: #ffb76b;
+  background: linear-gradient(
+    to right,
+    #ffb76b 0%,
+    #ffa73d 22%,
+    #ff7c00 44%,
+    #ff7f04 70%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 20px;
+  font-weight: bold;
+  transition: transform 0.6s;
+}
+
+.price-effect:hover {
+  transform: scale(1.5);
+}
