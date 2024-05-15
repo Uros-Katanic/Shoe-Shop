@@ -1,4 +1,5 @@
 import React, { createContext, useState, useContext, useEffect } from "react";
+import cartService from "../../services/cartService";
 
 export interface CartItem {
   id: number;
@@ -9,12 +10,14 @@ interface CartContextType {
   cartItems: CartItem[];
   addToCart: (item: CartItem) => void;
   cartCount: number;
+  setCartCount: (count: number) => void;
 }
 
 export const CartContext = createContext<CartContextType>({
   cartItems: [],
   addToCart: () => {},
   cartCount: 0,
+  setCartCount: () => {},
 });
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
@@ -25,9 +28,10 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     // Load cart items from local storage
-    const storedCartItems = localStorage.getItem("cartItems");
+    const storedCartItems = localStorage.getItem("cart");
     if (storedCartItems) {
       setCartItems(JSON.parse(storedCartItems));
+      setCartCount(cartService.getTotalNumberOfCartItems());
     }
   }, []);
 
@@ -52,11 +56,13 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({
 
   useEffect(() => {
     // Save cart items to local storage
-    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+    localStorage.setItem("cart", JSON.stringify(cartItems));
   }, [cartItems]);
 
   return (
-    <CartContext.Provider value={{ cartItems, addToCart, cartCount }}>
+    <CartContext.Provider
+      value={{ cartItems, addToCart, cartCount, setCartCount }}
+    >
       {children}
     </CartContext.Provider>
   );

@@ -4,15 +4,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Homepage/Homepage";
 import Purchase from "./pages/Purchase/Purchase";
 import "./App.css";
+import { CartProvider } from "./components/Cart/CartContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/purchase/:shoeId" element={<Purchase />} />
-      </Routes>
-    </BrowserRouter>
+    <CartProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/purchase/:shoeId" element={<Purchase />} />
+        </Routes>
+      </BrowserRouter>
+    </CartProvider>
   );
 }
 

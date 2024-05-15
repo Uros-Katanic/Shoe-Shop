@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import shoeDetailsStyle from "./ShoeDetails.module.css";
 import Shoe from "../../types/shoe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { useCart } from "../Cart/CartContext";
+import { CartContext, useCart } from "../Cart/CartContext";
 import cartService from "../../services/cartService";
 
 interface ShoeDetailsProps {
@@ -11,8 +11,12 @@ interface ShoeDetailsProps {
 }
 
 function ShoeDetails({ shoe }: ShoeDetailsProps) {
+  const { setCartCount } = useContext(CartContext);
+
   const handleAddToCart = () => {
     cartService.addShoeToCart(shoe);
+    // addToCart(shoe);
+    setCartCount(cartService.getTotalNumberOfCartItems());
   };
 
   return (

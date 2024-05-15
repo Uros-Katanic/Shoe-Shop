@@ -91,7 +91,58 @@ hr::after {
   font-weight: bold;
   font-size: 12pt;
   margin-top: 115px;
-  margin-right: 35px;
+  margin-right: 140px;
   background-color: rgb(119, 118, 118);
   border-radius: 20px;
+}
+
+.resetIcon {
+  color: white;
+  background-color: red;
+
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  text-decoration: none;
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  background-size: 200% auto;
+
+  border-radius: 10px;
+  font-weight: bold;
+
+  border: none;
+}
+
+.resetBorder {
+  background-image: linear-gradient(
+    to right,
+    #ff512f 0%,
+    #f09819 51%,
+    #ff512f 100%
+  );
+  border: none;
+  border-radius: 10px;
+  font-family: sans-serif;
+  background: #ffb76b;
+  background: linear-gradient(
+    to right,
+    #ffb76b 0%,
+    #ffa73d 22%,
+    #ff7c00 44%,
+    #ff7f04 70%
+  );
+  /* -webkit-background-clip: text; */
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  transition: transform 0.6s;
+  font-size: 11pt;
+  /* padding-right: 40px; */
+  width: 50px;
+  margin-top: 60px;
+  cursor: pointer;
 }
