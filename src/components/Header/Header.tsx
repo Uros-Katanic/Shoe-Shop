@@ -12,9 +12,9 @@ function Header() {
   return (
     <header>
       <nav className={styles.navBaseline}>
-        <span className="image-container">
+        <Link to="/" className="image-container">
           <img src={Logotype} alt="Logo" className="logo" />
-        </span>
+        </Link>
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -33,7 +33,7 @@ function Header() {
           <Link to="/cart" className={styles.cartLink}>
             <FontAwesomeIcon icon={faShoppingCart} className={styles.icon} />
             {cartCount > 0 && (
-              <span className={styles.cartCount}>{cartCount}.</span>
+              <span className={styles.cartCount}>{cartCount}</span>
             )}
           </Link>
         </div>
