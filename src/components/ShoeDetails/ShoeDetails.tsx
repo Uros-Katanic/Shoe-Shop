@@ -1,14 +1,20 @@
-import { Link } from "react-router-dom";
+import React from "react";
 import shoeDetailsStyle from "./ShoeDetails.module.css";
 import Shoe from "../../types/shoe";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { useCart } from "../Cart/CartContext";
+import cartService from "../../services/cartService";
 
 interface ShoeDetailsProps {
   shoe: Shoe;
 }
 
 function ShoeDetails({ shoe }: ShoeDetailsProps) {
+  const handleAddToCart = () => {
+    cartService.addShoeToCart(shoe);
+  };
+
   return (
     <article id={shoeDetailsStyle["details-container"]}>
       <div className={shoeDetailsStyle["img-description"]}>
@@ -31,16 +37,16 @@ function ShoeDetails({ shoe }: ShoeDetailsProps) {
         >
           {shoe.price}{" "}
         </p>
-        <Link
-          to={`/purchase/${shoe.id}`}
+        <button
           className={shoeDetailsStyle["buy-now-anchor"]}
+          onClick={handleAddToCart}
         >
-          Buy Now{" "}
+          Add to Cart{" "}
           <FontAwesomeIcon
             icon={faShoppingCart}
             className={shoeDetailsStyle["icon"]}
           />
-        </Link>
+        </button>
       </div>
     </article>
   );

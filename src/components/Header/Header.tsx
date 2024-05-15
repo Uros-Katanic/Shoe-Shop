@@ -1,16 +1,20 @@
-import React from "react";
-import { Link } from "react-router-dom"; // Assuming you're using React Router
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
-import Logotype from "../../assets/pngegg.png";
+import Logotype from "../../assets/logo2.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { CartContext } from "../Cart/CartContext"; // Import CartContext
 
 function Header() {
+  const { cartCount } = useContext(CartContext); // Access cartCount from CartContext
+
   return (
     <header>
       <nav className={styles.navBaseline}>
         <span className="image-container">
           <img src={Logotype} alt="Logo" className="logo" />
         </span>
-        {/* <img src="hamburger.png" alt="Menu" className="hamburger" /> */}
         <ul>
           <li>
             <Link to="/">Home</Link>
@@ -25,6 +29,14 @@ function Header() {
             <Link to="/contact">Contact</Link>
           </li>
         </ul>
+        <div className={styles.cartContainer}>
+          <Link to="/cart" className={styles.cartLink}>
+            <FontAwesomeIcon icon={faShoppingCart} className={styles.icon} />
+            {cartCount > 0 && (
+              <span className={styles.cartCount}>{cartCount}.</span>
+            )}
+          </Link>
+        </div>
       </nav>
       <hr />
     </header>

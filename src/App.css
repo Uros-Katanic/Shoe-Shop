@@ -9,7 +9,8 @@ body {
   align-items: baseline;
   height: min-content;
   padding: 10px;
-  width: 150px;
+  width: 200px;
+  /* opacity: 0.3; */
 }
 
 /* nav {

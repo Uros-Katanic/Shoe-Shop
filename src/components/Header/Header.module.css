@@ -69,3 +69,19 @@ hr::after {
   font-size: 1.5em;
   padding: 0 0.25em;
 }
+
+.icon {
+  color: whitesmoke;
+  padding-right: 60px;
+}
+
+.cartCount {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: white;
+  font-size: 14px;
+  padding: 2px 8px;
+  border-radius: 50%;
+  transition: background-color 0.3s ease; /* Add transition for smooth color change */
+}

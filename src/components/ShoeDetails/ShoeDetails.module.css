@@ -42,7 +42,7 @@ article {
 .buy-now-anchor {
   color: white;
   background-color: red;
-  padding: 15px 60px;
+  padding: 15px 45px;
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -57,7 +57,8 @@ article {
   box-shadow: 0 0 20px #eee;
   border-radius: 10px;
   font-weight: bold;
-  width: 80px;
+
+  border: none;
 }
 
 .buy-now-anchor:hover {
