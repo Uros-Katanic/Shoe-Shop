@@ -13,15 +13,35 @@ const addShoeToCart = (newShoe: Shoe) => {
     }
     newCartShoes.push({ id: addedShoe.id, quantity: addedShoe.quantity + 1 });
     localStorage.setItem("cart", JSON.stringify({ cartShoes: newCartShoes }));
+    console.log(getTotalNumberOfCartItems());
   } else {
     cart.cartShoes.push({ id: newShoe.id, quantity: 1 });
-    console.log("Updated Cart:", cart);
     localStorage.setItem("cart", JSON.stringify(cart));
+    console.log(getTotalNumberOfCartItems());
+  }
+};
+
+// TODO: Implement
+const getTotalNumberOfCartItems = (): number => {
+  const cartString = localStorage.getItem("cart");
+
+  if (cartString) {
+    const cart = JSON.parse(cartString);
+
+    let totalItems = 0;
+    for (const item of cart.cartShoes) {
+      totalItems += item.quantity;
+    }
+
+    return totalItems;
+  } else {
+    return 0;
   }
 };
 
 const cartService = {
   addShoeToCart,
+  getTotalNumberOfCartItems,
 };
 
 export default cartService;

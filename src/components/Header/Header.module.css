@@ -85,3 +85,13 @@ hr::after {
   border-radius: 50%;
   transition: background-color 0.3s ease; /* Add transition for smooth color change */
 }
+
+.cartCount {
+  color: red;
+  font-weight: bold;
+  font-size: 12pt;
+  margin-top: 115px;
+  margin-right: 35px;
+  background-color: rgb(119, 118, 118);
+  border-radius: 20px;
+}

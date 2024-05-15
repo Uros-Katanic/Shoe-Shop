@@ -1,13 +1,23 @@
-import React, { useContext } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import styles from "./Header.module.css";
-import Logotype from "../../assets/logo2.png";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { CartContext } from "../Cart/CartContext"; // Import CartContext
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Logotype from "../../assets/logo2.png";
+import styles from "./Header.module.css";
+import cartService from "../../services/cartService"; // Import cartService
 
 function Header() {
-  const { cartCount } = useContext(CartContext); // Access cartCount from CartContext
+  const [cartCount, setCartCount] = useState(0);
+
+  useEffect(() => {
+    // Pozovite funkciju za dobijanje ukupnog broja stavki korpe i postavite ga u stanje
+    const fetchCartCount = async () => {
+      const total = await cartService.getTotalNumberOfCartItems();
+      setCartCount(total);
+    };
+
+    fetchCartCount();
+  }, []);
 
   return (
     <header>
