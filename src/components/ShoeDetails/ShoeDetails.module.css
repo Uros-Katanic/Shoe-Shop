@@ -65,6 +65,7 @@ article {
   background-position: right center;
   color: #fff;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .price-effect {

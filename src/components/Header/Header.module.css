@@ -1,4 +1,4 @@
-nav {
+.navBaseline {
   background-color: transparent;
   text-align: center;
   font-size: 2em;
@@ -41,7 +41,6 @@ nav ul li a::before {
 }
 
 nav ul li a:hover {
-  /* background-color: lightgray; */
   border-radius: 20px;
   color: rgb(161, 159, 159);
   transform: scale(1.1); /* Scale the link on hover */
@@ -75,31 +74,32 @@ hr::after {
   padding-right: 60px;
 }
 
+.cartContainer {
+  position: relative;
+  display: inline-block;
+}
+
+.cartLink {
+  position: relative;
+  display: inline-block;
+}
+
 .cartCount {
   position: absolute;
-  top: 0;
-  right: 0;
-  color: white;
-  font-size: 14px;
+  top: 25px; /* Adjust this value as needed */
+  right: 40px; /* Adjust this value as needed */
+  color: red;
+  background-color: gray;
+  font-weight: bold;
+  font-size: 12px;
   padding: 2px 8px;
   border-radius: 50%;
   transition: background-color 0.3s ease; /* Add transition for smooth color change */
 }
 
-.cartCount {
-  color: red;
-  font-weight: bold;
-  font-size: 12pt;
-  margin-top: 115px;
-  margin-right: 75px;
-  background-color: rgb(119, 118, 118);
-  border-radius: 20px;
-}
-
 .resetIcon {
   color: white;
   background-color: red;
-
   text-align: center;
   text-transform: uppercase;
   transition: 0.5s;
@@ -111,10 +111,8 @@ hr::after {
     #ff512f 100%
   );
   background-size: 200% auto;
-
   border-radius: 10px;
   font-weight: bold;
-
   border: none;
 }
 
@@ -136,12 +134,10 @@ hr::after {
     #ff7c00 44%,
     #ff7f04 70%
   );
-  /* -webkit-background-clip: text; */
   -webkit-text-fill-color: transparent;
   font-weight: bold;
   transition: transform 0.6s;
   font-size: 11pt;
-  /* padding-right: 40px; */
   width: 50px;
   margin-top: 60px;
   cursor: pointer;

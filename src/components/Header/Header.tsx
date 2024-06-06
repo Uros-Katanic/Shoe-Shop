@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
 import { faShoppingCart, faSyncAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,25 +8,20 @@ import cartService from "../../services/cartService"; // Import cartService
 import { CartContext } from "../Cart/CartContext";
 
 function Header() {
-  // const [cartCount, setCartCount] = useState(0);
-
   const { cartCount, setCartCount } = useContext(CartContext);
 
   useEffect(() => {
     const fetchCartCount = async () => {
-      await cartService.getTotalNumberOfCartItems();
-      // setCartCount(total);
+      const total = await cartService.getTotalNumberOfCartItems();
+      setCartCount(total);
     };
 
     fetchCartCount();
-  }, []);
+  }, [setCartCount]);
 
   const handleResetCart = () => {
-    // Pozovite funkciju za resetovanje korpe iz cartService-a
     cartService.resetCart();
     setCartCount(0);
-    // Resetujte broj stavki korpe na 0
-    // setCartCount(0);
   };
 
   return (
@@ -57,13 +52,9 @@ function Header() {
             )}
           </Link>
         </div>
-        {/* <div className={styles.resetContainer}> */}
         <button onClick={handleResetCart} className={styles.resetBorder}>
-          {/* <span className={styles.resetText}>Reset Cart</span> */}
           <FontAwesomeIcon icon={faSyncAlt} className={styles.resetIcon} />
         </button>
-        {/* <FontAwesomeIcon icon={faSyncAlt} className={styles.resetIcon} /> */}
-        {/* </div> */}
       </nav>
       <hr />
     </header>
