@@ -86,12 +86,12 @@ hr::after {
 
 .cartCount {
   position: absolute;
-  top: 25px; /* Adjust this value as needed */
-  right: 40px; /* Adjust this value as needed */
+  top: 30px; /* Adjust this value as needed */
+  right: 45px; /* Adjust this value as needed */
   color: red;
   background-color: gray;
   font-weight: bold;
-  font-size: 12px;
+  font-size: 20px;
   padding: 2px 8px;
   border-radius: 50%;
   transition: background-color 0.3s ease; /* Add transition for smooth color change */
@@ -141,19 +141,4 @@ hr::after {
   width: 50px;
   margin-top: 60px;
   cursor: pointer;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 1em;
-}
-
-@media (min-width: 768px) {
-  .header {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 1.5em;
-  }
 }
