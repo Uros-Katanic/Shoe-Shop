@@ -7,7 +7,7 @@ import "../../components/Footer/Footer.module.css";
 import "../../components/Header/Header.module.css";
 import "../../components/ShoeList/ShoeList.module.css";
 import ShoeList from "../../components/ShoeList/ShoeList";
-
+import "./Homepage.css";
 function Home() {
   return (
     <div>

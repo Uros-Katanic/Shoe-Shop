@@ -7,3 +7,23 @@
   flex-wrap: wrap;
   margin-bottom: 10em;
 }
+
+
+.shoeList {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1em;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .shoeList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .shoeList {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
