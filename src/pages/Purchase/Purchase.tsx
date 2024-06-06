@@ -2,43 +2,37 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
-import ShoeCard from "../../components/ShoeCard/ShoeCard";
-import styles from "./Purchase.module.css";
-import { shoeArray } from "../../data";
-import Shoe from "../../types/shoe";
 import ShoeDetails from "../../components/ShoeDetails/ShoeDetails";
+import axios from "axios";
+import Shoe from "../../types/shoe";
+import styles from "./Purchase.module.css";
 
 function Purchase() {
   const { shoeId } = useParams();
-  const [shoe, setShoe] = useState<Shoe>({
-    id: 0,
-    description: "",
-    imageUrl: "",
-    price: "",
-    model: "",
-  });
-
-  const findShoe = () => {
-    const foundShoe = shoeArray.find(
-      (item) => item.id === parseInt(shoeId || "")
-    );
-    if (foundShoe) {
-      setShoe(foundShoe);
-    }
-  };
+  const [shoe, setShoe] = useState<Shoe | null>(null);
 
   useEffect(() => {
-    findShoe();
+    const fetchShoe = async () => {
+      try {
+        const response = await axios.get(`http://localhost:5000/api/shoes/${shoeId}`);
+        setShoe(response.data);
+      } catch (error) {
+        console.error("Error fetching shoe data:", error);
+      }
+    };
+    fetchShoe();
   }, [shoeId]);
+
+  if (!shoe) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div>
       <Header />
       <div>
-        {shoe.id}
         <ShoeDetails key={shoe.id} shoe={shoe} />
       </div>
-
       <div className={styles["footer-space"]}></div>
       <Footer />
     </div>
